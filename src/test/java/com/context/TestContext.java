@@ -10,4 +10,6 @@ public class TestContext {
     public WebDriverWait wait;
     public Actions actions;
     public JavascriptExecutor js;
+    public StringBuilder logs;
+
 }

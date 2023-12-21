@@ -4,25 +4,45 @@ import com.context.TestContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
-public class MainPage extends InternalPage {
-    @FindBy(css = ".btn_inventory")
-    public List<WebElement> addToCartButtons;
-
-    @FindBy(css = ".inventory_item_desc")
-    public WebElement firstDescriptionContainer;
-
+public class MainPage extends BasePage {
     public MainPage(TestContext context) {
         super(context);
     }
 
-    public MainPage clickAllAddToCartButtons() {
-        addToCartButtons.forEach(WebElement::click);
-        return this;
+    @FindBy(xpath = "//a[text()='Alerts']")
+    public WebElement buttonAlerts;
+
+    @FindBy(xpath = "//a[text()='Accounts Overview']")
+    public WebElement buttonAccountsOverview;
+
+    @FindBy(xpath = "//a[text()='Transfers']")
+    public WebElement buttonTransfers;
+
+    @FindBy(id = "landing_after")
+    public WebElement buttonGoToAccountsOverview;
+
+    @FindBy(xpath = "//button[text()='Remind me later']")
+    public WebElement buttonCloseWindow;
+
+    public AlertsPage toAlerts() {
+        buttonAlerts.click();
+        return new AlertsPage(context);
     }
 
-    public String getFirstDescription() {
-        return firstDescriptionContainer.getText();
+    public AppPage toAccountsOverview() {
+        buttonAccountsOverview.click();
+        buttonCloseWindow.click();
+        return new AppPage(context);
+    }
+
+    public TransferPage toTransferPage() {
+        buttonTransfers.click();
+        return new TransferPage(context);
+    }
+
+    public AppPage goToAccountsOverview() {
+        buttonGoToAccountsOverview.click();
+        buttonCloseWindow.click();
+        return new AppPage(context);
     }
 }
