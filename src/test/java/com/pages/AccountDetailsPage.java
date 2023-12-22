@@ -11,6 +11,8 @@ public class AccountDetailsPage extends BasePage {
         super(context);
     }
 
+    public static final String ERROR_MESSAGE = "error";
+
     @FindBy(xpath = "//*[@href='/AccountDetails/5555/1'][text()='Activity']")
     public WebElement buttonActivity;
 
@@ -40,7 +42,7 @@ public class AccountDetailsPage extends BasePage {
                 return w.getText();
             }
         }
-        return "error";
+        return ERROR_MESSAGE;
     }
 
     public int getSizeListDocuments() {

@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SendMoneyOutsidePageTest extends TestBase {
-
+    public static final String FOUR_SPACES = "    ";
     @Test
     @Story("SendMoney")
     @Description("sendMoneyLaura")
     public void sendMoneyLaura() {
 
-        assertEquals("    Adv Plus Banking 2322.56",
+        assertEquals(FOUR_SPACES+"Adv Plus Banking 2322.56",
                 new MainPage(context)
                         .goToAccountsOverview()
                         .toPayTransfer()

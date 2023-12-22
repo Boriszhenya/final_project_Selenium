@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 public class SendMoneyOutsidePage extends BasePage {
+    public static final int POSITION = 1;
+
     public SendMoneyOutsidePage(TestContext context) {
         super(context);
     }
@@ -35,7 +37,7 @@ public class SendMoneyOutsidePage extends BasePage {
     public SendMoneyOutsidePage formFilling() {
         Select select = new Select(fieldFrom);
         fieldFrom.click();
-        select.selectByIndex(1);
+        select.selectByIndex(POSITION);
         fieldTo.click();
         fieldAmount.click();
         fieldNote.sendKeys("test");

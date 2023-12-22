@@ -9,6 +9,9 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class TransferPage extends BasePage {
+    public static final int NUMBER_ITERATIONS = 6;
+
+    public static String TRANSFER_VALUE = "1000.00";
 
     public TransferPage(TestContext context) {
         super(context);
@@ -49,18 +52,15 @@ public class TransferPage extends BasePage {
         return new TransferPage(context);
     }
 
-    String transferValue = "1000.00";
-
     public TransferPage executionTransfer() {
         fieldTransferMoneyFrom.click();
         listTransferMoneyFrom.getFirst().click();
         fieldTransferMoneyTo.click();
         listTransferMoneyTo.get(1).click();
-
-        for (int i = 0; i <= 6; i++) {
+         for (int i = 0; i <= NUMBER_ITERATIONS; i++) {
             fieldAmount.sendKeys(Keys.BACK_SPACE);
         }
-        fieldAmount.sendKeys(transferValue);
+        fieldAmount.sendKeys(TRANSFER_VALUE);
         fieldFrequency.click();
         listFrequency.getFirst().click();
         buttonNext.click();

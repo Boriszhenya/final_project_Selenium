@@ -30,6 +30,9 @@ public class AppPage extends BasePage {
     @FindBy(xpath = "//a[text()='Choose your deals']")
     public WebElement buttonChooserYourDeals;
 
+    @FindBy(xpath = "//span[text()='Security Center'][@class='top-link']/../..")
+    public WebElement buttonSecurityCenter;
+
     public AppPage toSpecialOffers() {
         buttonSpecialOffers.click();
         return new AppPage(context);
@@ -59,4 +62,10 @@ public class AppPage extends BasePage {
         buttonChooserYourDeals.click();
         return new CashBackDealsPage(context);
     }
+
+    public SecurityDashboardPage toSecurityCenter() {
+        buttonSecurityCenter.click();
+        return new SecurityDashboardPage(context);
+    }
+
 }

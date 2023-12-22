@@ -6,6 +6,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TransferPageTest extends TestBase {
     @Test
@@ -20,4 +21,17 @@ public class TransferPageTest extends TestBase {
                         .goTransfer()
                         .textResult());
     }
+
+    @Test
+    @Story("Activity")
+    @Description("Search Activity Energy")
+    public void searchEBillEnergy() {
+        assertTrue(new MainPage(context)
+                .goToAccountsOverview()
+                .toPayTransfer()
+                .searchBillEnergy()
+        );
+    }
+
+
 }
