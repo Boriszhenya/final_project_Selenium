@@ -19,7 +19,6 @@ public class CashBackDealsPageTest extends TestBase {
                         .toRewardsDeals()
                         .markBayside()
                         .getTextResultBayside()
-
         );
     }
 }
